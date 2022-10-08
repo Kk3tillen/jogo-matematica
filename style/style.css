@@ -4,8 +4,9 @@
 }
 h1{
     text-align: center;
-    padding: 30px;
+    padding: 50px;
     color: aliceblue;
+    font-size: 3em;
 }
 a{
     background-color: #9665d6;

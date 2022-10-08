@@ -1,8 +1,24 @@
 <?php
-    $n1 = rand(1,99);
-    $n2 = rand(1,99);
-
-    $operacao = $_POST;
+    $op = $_GET['operacao'];
+    $n1 = rand(1, 99);
+    $n2 = rand(1, 99);
+    
+    if ($op == 'soma')
+    {
+        $op = '+';
+    }
+    else if ($op == 'subtração')
+    {
+        $op = '-';
+    }
+    else if ($op == 'divisão')
+    {
+        $op = '÷';
+    }
+    else
+    {
+        $op = '×';
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,13 +37,14 @@
     <div class="partidas">
         <div class="numeros"> 
             <span><?php echo $n1;?></span>
-            <span>×<span>
+            <span><?php echo $op; ?><span>
             <span><?php echo $n2;?></span>
             <span>=</span>
         </div>
         <div class="resultado">
-            <input class="form" type="number">
-            <button class="btn" type="button">Calcular</button> 
+            <form method="POST" action="/resultado.php?n1=<?=$n1?>&n2=<?=$n2?>&op=<?=$_GET['operacao']?>">
+            <input class="form" type="number" name="resposta">
+            <button class="btn" type="submit">Calcular</button> 
      </div>
     </div>
 </body>
